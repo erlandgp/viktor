@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Buku Tamu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background: rgb(255, 255, 255); font-family: Arial, sans-serif; font-size: 13px;">
+    <div class="container mt-5">
+        <div class="card border-0 shadow rounded">
+            <div class="card-body">
+                <a href="/" class="btn btn-md btn-primary mb-3">Tambah Tamu</a>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>PILIH KATEGORI</th>
+                            <th>NAMA</th>
+                            <th>INSTANSI</th>
+                            <th>NOMOR HP/TELEPON</th>
+                            <th>BIRO TUJUAN</th>
+                            <th>ALAMAT</th>
+                            <th>KEPERLUAN</th>
+                            <th>TANGGAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(data.length > 0) { %>
+                            <% data.forEach((guest, index) => { %>
+                                <tr>
+                                    <td class="text-center"><%= index + 1 %></td>
+                                    <td><%= guest.pilih_kategori %></td>
+                                    <td><%= guest.nama %></td>
+                                    <td><%= guest.instansi %></td>
+                                    <td><%= guest.nomor_hp_telepon %></td>
+                                    <td><%= guest.biro_tujuan %></td>
+                                    <td><%= guest.alamat %></td>
+                                    <td><%= guest.keperluan %></td>
+                                    <td><%= guest.tanggal %></td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <div class="alert alert-danger">
+                                        Data Tidak Ditemukan!
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
